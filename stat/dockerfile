@@ -1,0 +1,11 @@
+FROM openjdk:17-alpine
+
+ENV TZ=Asia/Seoul
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+EXPOSE 8080
+
+COPY ./build/libs/*-SNAPSHOT.jar deploy.jar
+
+RUN echo "java -jar deploy.jar" > run.sh && chmod +x run.sh
+CMD ["sh", "run.sh"]
