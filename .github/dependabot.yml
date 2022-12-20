@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: "xlsx"
+  - package-ecosystem: "gradle"
     directory: "/xlsx"
     schedule:
       interval: "daily"
