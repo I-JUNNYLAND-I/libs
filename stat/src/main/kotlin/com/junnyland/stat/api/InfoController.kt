@@ -16,13 +16,12 @@ class InfoController(
     private val resourceLoader: ResourceLoader
 ) {
 
-    private val DEFAULT = resourceLoader.getResource("classpath:static/default.svg").file;
+    private val DEFAULT = resourceLoader.getResource("classpath:static/default.svg");
 
     @GetMapping("/info")
     fun info(@RequestParam userId: String): ResponseEntity<String> {
         val call = parserInfo.call(userId)
-        val readLines = DEFAULT.readLines()
-            .asSequence()
+        val readLines = DEFAULT.file.readLines()
             .map { it.replace("{{submit}}", call.submit) }
             .map { it.replace("{{resolved}}", call.solved) }
             .map { it.replace("{{failed}}", call.fail) }
