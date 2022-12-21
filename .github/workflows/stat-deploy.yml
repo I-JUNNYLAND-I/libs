@@ -19,10 +19,10 @@ jobs:
         java-version: 17
         
     - name: execute gradle
-      run: chmod +x ./join/gradlew
+      run: chmod +x ./stat/gradlew
       
     - name: build java
-      run: cd ./join  && ./gradlew clean build
+      run: cd ./stat  && ./gradlew clean build
             
     - name: Jar deploy
       uses: appleboy/scp-action@master  
