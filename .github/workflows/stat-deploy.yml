@@ -42,4 +42,4 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            sudo sh stat/deploy.sh ${{ secrets.AUTH }} ${{ secrets.IV }}
+            cd /home/ubuntu/stat && sudo sh ./deploy.sh
