@@ -25,6 +25,8 @@ class InfoController(
             .map { it.replace("{{resolved}}", call.solved) }
             .map { it.replace("{{failed}}", call.fail) }
             .map { it.replace("{{my}}", userId) }
+            .map { it.replace("{{src}}", call.badge) }
+
             .joinToString("\n")
 
         return ResponseEntity.ok()
