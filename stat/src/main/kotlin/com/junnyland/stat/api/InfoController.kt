@@ -21,6 +21,7 @@ class InfoController(
         val readLines = SvgData().data.lines()
             .asSequence()
             .map { it.replace("{{submit}}", call.submit) }
+            .map { it.replace("{{grade}}", call.grade) }
             .map { it.replace("{{resolved}}", call.solved) }
             .map { it.replace("{{failed}}", call.fail) }
             .map { it.replace("{{my}}", userId) }
