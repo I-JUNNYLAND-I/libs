@@ -1,7 +1,7 @@
 package com.junnyland.stat.api
 
 import com.junnyland.stat.client.ParserInfo
-import org.springframework.core.io.ResourceLoader
+import com.junnyland.stat.svgFixture.SvgData
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -12,16 +12,14 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api")
 class InfoController(
-    private val parserInfo: ParserInfo,
-    private val resourceLoader: ResourceLoader
+    private val parserInfo: ParserInfo
 ) {
-
-    private val DEFAULT = resourceLoader.getResource("classpath:static/default.svg");
-
     @GetMapping("/info")
     fun info(@RequestParam userId: String): ResponseEntity<String> {
+
         val call = parserInfo.call(userId)
-        val readLines = DEFAULT.file.readLines()
+        val readLines = SvgData().data.lines()
+            .asSequence()
             .map { it.replace("{{submit}}", call.submit) }
             .map { it.replace("{{resolved}}", call.solved) }
             .map { it.replace("{{failed}}", call.fail) }

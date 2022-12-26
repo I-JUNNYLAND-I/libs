@@ -15,14 +15,14 @@ interface ParserInfo {
 
             val get = Jsoup.connect(info).get()
 
-            val myData = get.getElementById("statics")!!.allElements.eachText().get(0).split(" ")
+            val myData = get.getElementById("statics")!!.allElements.eachText()[0].split(" ")
             val myBadge = get.getElementsByClass("solvedac-tier").attr("src")
 
             return Result(
                 grade = myData[1],
                 submit = myData[11],
-                solved = myData[4],
-                fail = myData[9],
+                solved = myData[13],
+                fail = myData[18],
                 badge = myBadge,
                 myPage = info
             )

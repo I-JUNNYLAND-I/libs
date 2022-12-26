@@ -7,7 +7,7 @@ class ParserInfoTest{
     @Test
     fun `test`(){
         val baekjoon = ParserInfo.Baekjoon("https://www.acmicpc.net/user/")
-        val call = baekjoon.call("terry9611")
+        val call = baekjoon.call("wjwan0")
 
         println("call = ${call}")
     }
