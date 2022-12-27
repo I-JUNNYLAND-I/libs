@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public record FieldExtractor(Class<?> clazz) {
+record FieldExtractor(Class<?> clazz) {
 
     private static final Object formatter = new Object();
 

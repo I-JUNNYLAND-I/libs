@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import junny.land.xlsx.annotation.Column;
 import junny.land.xlsx.datas.XlsxHeaders;
 
-public record HeaderExtractor(Class<?> clazz) {
+record HeaderExtractor(Class<?> clazz) {
     public XlsxHeaders extract(){
         ArrayList<String> headerList = new ArrayList<>();
 
