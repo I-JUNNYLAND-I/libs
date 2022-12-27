@@ -14,7 +14,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("org.apache.poi:poi:5.2.3")
-
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
 }
 
 tasks.test {
