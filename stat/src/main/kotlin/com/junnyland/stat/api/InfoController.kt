@@ -18,7 +18,7 @@ class InfoController(
     fun info(@RequestParam userId: String): ResponseEntity<String> {
 
         val call = parserInfo.call(userId)
-        val readLines = SvgData().data.lines()
+        val readLines = SvgData.data().lines()
             .asSequence()
             .map { it.replace("{{submit}}", call.submit) }
             .map { it.replace("{{grade}}", call.grade) }
