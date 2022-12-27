@@ -1,4 +1,4 @@
-package junny.land.xlsx
+package junny.land.xlsx.makers
 
 import junny.land.xlsx.annotation.Column
 import org.apache.poi.ss.usermodel.*
@@ -6,9 +6,7 @@ import org.apache.poi.ss.usermodel.IndexedColors.BLUE_GREY
 import org.apache.poi.ss.util.CellRangeAddress
 import java.lang.reflect.Field
 
-class BookMaker(
-    val workbook: Workbook
-) {
+class BookMaker(val workbook: Workbook) {
     private fun getColumnName(field: Field): String? {
         val headerName: String = field.getAnnotation(Column::class.java).name
         return if (headerName == "") field.name else headerName
