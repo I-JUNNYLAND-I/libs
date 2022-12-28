@@ -17,3 +17,9 @@ class TypeSelector<T>(val root: Library<T>) {
         return NameSelector(root).name(UUID.randomUUID().toString())
     }
 }
+
+enum class ExtractType(val useType: UseType) {
+    CSV(UseType.csv),
+    XLSX(UseType.xlsx),
+    PLAIN(UseType.plain);
+}

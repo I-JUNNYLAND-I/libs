@@ -7,7 +7,7 @@ import static java.lang.String.valueOf;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import junny.land.xlsx.datas.XlsxFields;
+import junny.land.xlsx.builder.extract.datas.XlsxFields;
 
 public record FieldValue<T>(T objects) {
     public XlsxFields extract() {
