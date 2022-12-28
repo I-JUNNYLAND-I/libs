@@ -6,24 +6,24 @@ import static java.lang.String.valueOf;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import junny.land.xlsx.builder.extract.datas.XlsxFields;
+import junny.land.xlsx.datas.XlsxFields;
 
 public record FieldValue<T>(T objects) {
     public XlsxFields extract() {
-        Map<String, String> map = new HashMap<>();
         Class<?> clazz = objects.getClass();
-        Arrays.asList(clazz.getDeclaredFields()).forEach(field -> {
-            field.setAccessible(TRUE);
+        List<String> datas = Arrays.asList(clazz.getDeclaredFields()).stream().map(field -> {
             try {
-                map.put(field.getName(), valueOf(field.get(objects)));
+                field.setAccessible(TRUE);
+                return valueOf(field.get(objects));
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
-            field.setAccessible(FALSE);
-        });
+            return "";
+        }).toList();
 
-        return new XlsxFields(map);
+        return new XlsxFields(datas);
     }
 }
 
