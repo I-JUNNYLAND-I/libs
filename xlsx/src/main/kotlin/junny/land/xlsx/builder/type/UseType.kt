@@ -1,29 +1,37 @@
 package junny.land.xlsx.builder.type
 
+import junny.land.xlsx.builder.type.csv.CsvType
+import junny.land.xlsx.datas.XlsxFields
+import junny.land.xlsx.datas.XlsxHeaders
+import java.nio.file.Files
+import java.nio.file.Path
+import java.util.*
+
 interface UseType {
     fun extension(): String
-    companion object{
-        val xlsx : UseType = XlsxType()
-        val plain : UseType = PlainType()
-        val csv : UseType = CsvType()
-    }
+    fun convert(headers: XlsxHeaders, datas: List<XlsxFields>): Path
 }
 
-private class XlsxType : UseType {
+class XlsxType : UseType {
     private val myType = ExtractType.XLSX
     override fun extension(): String {
         return ".xlsx"
     }
+
+    override fun convert(headers: XlsxHeaders, datas: List<XlsxFields>) : Path {
+        return Files.createTempFile(UUID.randomUUID().toString(), extension())
+    }
 }
-private class PlainType : UseType {
+
+class PlainType : UseType {
     private val myType = ExtractType.PLAIN
     override fun extension(): String {
         return ".txt"
     }
-}
-private class CsvType : UseType {
-    private val myType = ExtractType.CSV
-    override fun extension(): String {
-        return ".csv"
+
+    override fun convert(headers: XlsxHeaders, datas: List<XlsxFields>) : Path {
+        return Files.createTempFile(UUID.randomUUID().toString(), extension())
     }
 }
+
+
