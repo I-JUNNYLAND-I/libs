@@ -1,4 +1,4 @@
-package junny.land.xlsx.makers
+package junny.land.xlsx.builder.type.xlsx
 
 import junny.land.xlsx.annotation.Column
 import org.apache.poi.ss.usermodel.*

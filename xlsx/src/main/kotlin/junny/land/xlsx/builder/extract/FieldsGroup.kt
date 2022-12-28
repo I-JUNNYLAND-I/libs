@@ -1,7 +1,7 @@
 package junny.land.xlsx.builder.extract
 
-import junny.land.xlsx.builder.extract.datas.XlsxFields
-import junny.land.xlsx.builder.extract.datas.XlsxHeaders
+import junny.land.xlsx.datas.XlsxFields
+import junny.land.xlsx.datas.XlsxHeaders
 
 class FieldsGroup<T>(
     private val raws:List<T>,

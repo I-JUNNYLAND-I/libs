@@ -14,8 +14,3 @@ class OutputSelector<T>(private val root: Library<T>) {
     }
 }
 
-enum class Type(val output: OutPutType, val reponse: Any) {
-    REST(OutPutType.restApi, ResponseEntity::class.java),
-    SERVER(OutPutType.serverSide, ModelAndView::class.java),
-    LOCAL(OutPutType.local, Path::class.java);
-}

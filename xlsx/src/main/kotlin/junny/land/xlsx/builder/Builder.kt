@@ -9,8 +9,9 @@ class Builder<T>(private val root: Library<T>) {
     private val l = File.separator
 
     fun build() {
-        val path = root.path() + l + root.name() + root.type().extension()
-        root.output().response(path)
     }
 
+    private infix fun String.with(name:String): String {
+        return this +l+ name
+    }
 }
