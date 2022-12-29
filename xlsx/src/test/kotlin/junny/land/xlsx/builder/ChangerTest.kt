@@ -6,7 +6,7 @@ import junny.land.xlsx.samples.SampleKt
 import org.junit.jupiter.api.Test
 import java.io.OutputStream
 
-class LibraryTest {
+class ChangerTest {
     val lists = listOf(
         SampleKt("junny", 25, 1),
         SampleKt(age = 26, noAnno = 2),
@@ -15,7 +15,7 @@ class LibraryTest {
 
     @Test
     fun extractTest() {
-        val build= Library.create(lists)
+        val build= Changer.create(lists)
             .classType(SampleKt::class.java)
             .type(ExtractType.CSV)
             .name("jay")
@@ -28,12 +28,12 @@ class LibraryTest {
     }
     @Test
     fun extractTest2() {
-        val build= Library.create(lists)
+        val build= Changer.create(lists)
             .classType(SampleKt::class.java)
-            .type(ExtractType.CSV)
+            .type(ExtractType.XLSX)
             .name("jay")
             .temporary()
-            .output(Type.OUTPUT_STEAM)
+            .output(Type.FILE)
             .path("./")
             .build<OutputStream>()
 

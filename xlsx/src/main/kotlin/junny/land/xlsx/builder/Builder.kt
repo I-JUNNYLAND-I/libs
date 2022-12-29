@@ -3,7 +3,7 @@ package junny.land.xlsx.builder
 import junny.land.xlsx.builder.extract.FieldsGroup
 import kotlin.io.path.extension
 
-class Builder<T>(private val root: Library<T>) {
+class Builder<T>(private val root: Changer<T>) {
 
     private val group: FieldsGroup<T> = FieldsGroup(root.raws, root.clazz)
 

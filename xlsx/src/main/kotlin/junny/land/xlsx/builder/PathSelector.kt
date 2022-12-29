@@ -5,7 +5,7 @@ import java.nio.file.Path
 
 private fun Path.toAbsolutePathString(): String = this.toAbsolutePath().toString()
 
-class PathSelector<T>(private val root: Library<T>) {
+class PathSelector<T>(private val root: Changer<T>) {
     fun path(root: String): Builder<T> = Builder(this.root.also { it.path(root) })
     fun defaultPath(): Builder<T> = Files
         .createTempDirectory(DEFAULT_PATH)

@@ -7,7 +7,7 @@ import junny.land.xlsx.builder.type.UseType
 import java.nio.file.Files
 import java.nio.file.Path
 
-class Library<T>(val raws: List<T>) {
+class Changer<T>(val raws: List<T>) {
     lateinit var clazz: Class<T>
     lateinit var type: UseType
     lateinit var responseType: Type
@@ -20,7 +20,7 @@ class Library<T>(val raws: List<T>) {
 
     companion object {
         fun <T> create(raws: List<T>): ClassSelector<T> {
-            val lib = Library(raws);
+            val lib = Changer(raws);
             return ClassSelector(lib)
         }
     }
