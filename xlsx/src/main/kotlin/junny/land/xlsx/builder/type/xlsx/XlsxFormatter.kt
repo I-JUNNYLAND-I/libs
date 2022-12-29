@@ -16,7 +16,7 @@ fun xlsxMake() = SXSSFWorkbook(XSSFWorkbook(), 500)
 
 fun headerGenerator(sheet: Sheet, header: HeaderDatas) {
     val headerRow = sheet
-        .also { it.setAutoFilter(CellRangeAddress(0, 0, 0, header.colSize())) }
+        .also { it.setAutoFilter(CellRangeAddress(0, 0, 0, header.colSize)) }
         .let { sheet.createRow(0) }
 
     header.headers.forEachIndexed { index: Int, element: String ->

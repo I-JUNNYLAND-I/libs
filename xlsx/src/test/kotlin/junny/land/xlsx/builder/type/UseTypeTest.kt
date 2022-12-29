@@ -51,4 +51,12 @@ class UseTypeTest {
         println("path = " + convert)
         Assertions.assertThat(convert).isInstanceOf(Path::class.java)
     }
+    @Test
+    fun `PlainTest`(){
+        val type: UseType = PlainType()
+        val convert = type.convert(headers, datas)
+
+        println("path = " + convert)
+        Assertions.assertThat(convert).isInstanceOf(Path::class.java)
+    }
 }

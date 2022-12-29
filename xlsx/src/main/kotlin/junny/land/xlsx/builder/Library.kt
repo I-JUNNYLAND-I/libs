@@ -4,6 +4,8 @@ import junny.land.xlsx.builder.output.OutPutType
 import junny.land.xlsx.builder.output.Type
 import junny.land.xlsx.builder.type.ExtractType
 import junny.land.xlsx.builder.type.UseType
+import java.nio.file.Files
+import java.nio.file.Path
 
 class Library<T>(val raws: List<T>) {
     lateinit var clazz: Class<T>
@@ -51,16 +53,26 @@ class Library<T>(val raws: List<T>) {
     fun extractType(type: ExtractType) {
         this.extractType = type
     }
+
     fun path(): String {
         return this.path
     }
+
     fun name(): String {
         return this.name
     }
+
     fun type(): UseType {
         return this.type
     }
+
     fun output(): OutPutType {
         return this.output
+    }
+
+    fun temporary(path: Path) {
+        if (this.temporary) {
+            Files.deleteIfExists(path)
+        }
     }
 }

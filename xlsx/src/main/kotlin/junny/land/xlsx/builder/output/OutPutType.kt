@@ -1,29 +1,31 @@
 package junny.land.xlsx.builder.output
 
-import java.nio.file.Files
 import java.nio.file.Path
 
 interface OutPutType {
-    fun response(path: String);
-    companion object{
-        val restApi : OutPutType = RestApiType()
-        val serverSide : OutPutType = ServerSideType()
-        val local : OutPutType = LocalType()
-    }
+    fun response(path: Path): Any;
 }
 
-private class RestApiType : OutPutType {
+class RestApiType : OutPutType {
     private val myType = Type.REST
-    override fun response(path: String) {}
+    override fun response(path: Path): Type {
+        return myType
+    }
 }
-private class ServerSideType : OutPutType {
+class ServerSideType : OutPutType {
     private val myType = Type.SERVER
-    override fun response(path: String) {}
+    override fun response(path: Path): Type {
+        return myType
+    }
 }
-private class LocalType : OutPutType {
-    private val myType = Type.LOCAL
-    override fun response(path: String) {
-        val file = Files.createFile(Path.of(path))
-        println("myType = ${myType}")
+class LocalType : OutPutType {
+    override fun response(path: Path): Path {
+        return path
+    }
+}
+class OutputSteamType : OutPutType {
+    private val myType = Type.OUTPUT_STEAM
+    override fun response(path: Path): Type {
+        return myType
     }
 }
