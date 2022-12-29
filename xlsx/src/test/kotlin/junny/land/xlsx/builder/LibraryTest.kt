@@ -15,7 +15,7 @@ class LibraryTest {
     @Test
     fun extractTest() {
         Library.create(lists)
-            .clazz(SampleKt::class.java)
+            .classType(SampleKt::class.java)
             .type(ExtractType.PLAIN)
             .name("jay")
             .temporary()
