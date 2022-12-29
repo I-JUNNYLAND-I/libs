@@ -4,6 +4,7 @@ import junny.land.xlsx.builder.output.Type
 import junny.land.xlsx.builder.type.ExtractType
 import junny.land.xlsx.samples.SampleKt
 import org.junit.jupiter.api.Test
+import java.io.OutputStream
 
 class LibraryTest {
     val lists = listOf(
@@ -14,14 +15,29 @@ class LibraryTest {
 
     @Test
     fun extractTest() {
-        Library.create(lists)
+        val build= Library.create(lists)
             .classType(SampleKt::class.java)
-            .type(ExtractType.PLAIN)
+            .type(ExtractType.CSV)
             .name("jay")
             .temporary()
-            .output(Type.PATH)
-            .path("/")
-            .build()
+            .output(Type.BYTE)
+            .path("./")
+            .build<ByteArray>()
 
+        println("build = ${build}")
     }
+    @Test
+    fun extractTest2() {
+        val build= Library.create(lists)
+            .classType(SampleKt::class.java)
+            .type(ExtractType.CSV)
+            .name("jay")
+            .temporary()
+            .output(Type.OUTPUT_STEAM)
+            .path("./")
+            .build<OutputStream>()
+
+        println("build = ${build}")
+    }
+
 }
