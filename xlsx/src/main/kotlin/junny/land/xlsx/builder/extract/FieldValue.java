@@ -1,21 +1,18 @@
 package junny.land.xlsx.builder.extract;
 
-import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static java.lang.String.valueOf;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import junny.land.xlsx.datas.XlsxFields;
+import junny.land.xlsx.datas.FieldDatas;
 
 public record FieldValue<T>(T objects) {
-    public XlsxFields extract() {
+    public FieldDatas extract() {
         Class<?> clazz = objects.getClass();
         List<String> datas = Arrays.stream(clazz.getDeclaredFields()).map(this::toString).toList();
-        return new XlsxFields(datas);
+        return new FieldDatas(datas);
     }
 
     public String toString(Field element){

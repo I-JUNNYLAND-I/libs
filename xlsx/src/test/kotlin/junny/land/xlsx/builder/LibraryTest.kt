@@ -14,13 +14,13 @@ class LibraryTest {
 
     @Test
     fun extractTest() {
-        Library.create(lists) //  <<이거 해방
+        Library.create(lists)
             .clazz(SampleKt::class.java)
             .type(ExtractType.PLAIN)
-            .name("your mom")
-            .default
-            .output(Type.LOCAL)
-            .path("/your-mom")
+            .name("jay")
+            .temporary()
+            .output(Type.REST)
+            .path("/")
             .build()
 
     }

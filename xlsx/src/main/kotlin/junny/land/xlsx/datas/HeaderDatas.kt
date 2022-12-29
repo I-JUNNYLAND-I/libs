@@ -1,6 +1,6 @@
 package junny.land.xlsx.datas
 
-data class XlsxHeaders(val headers: List<String>){
+data class HeaderDatas(val headers: List<String>){
     val csv: String
         get() = headers.joinToString(",")
     fun toCsv(): String {

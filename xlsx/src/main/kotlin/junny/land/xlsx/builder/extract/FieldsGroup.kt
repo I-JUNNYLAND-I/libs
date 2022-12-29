@@ -1,7 +1,7 @@
 package junny.land.xlsx.builder.extract
 
-import junny.land.xlsx.datas.XlsxFields
-import junny.land.xlsx.datas.XlsxHeaders
+import junny.land.xlsx.datas.FieldDatas
+import junny.land.xlsx.datas.HeaderDatas
 
 class FieldsGroup<T>(
     private val raws:List<T>,
@@ -9,6 +9,6 @@ class FieldsGroup<T>(
 ){
     private val headerValues=  HeaderValues(format)
 
-    fun headers(): XlsxHeaders = headerValues.extract()
-    fun valueList(): List<XlsxFields> = raws.map { FieldValue(it).extract() }
+    fun headers(): HeaderDatas = headerValues.extract()
+    fun valueList(): List<FieldDatas> = raws.map { FieldValue(it).extract() }
 }
