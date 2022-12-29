@@ -6,4 +6,7 @@ data class XlsxHeaders(val headers: List<String>){
     fun toCsv(): String {
         return headers.joinToString(",")
     }
+
+    fun colSize()= headers.size-1
+
 }

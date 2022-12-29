@@ -14,13 +14,14 @@ class LibraryTest {
 
     @Test
     fun extractTest() {
-        Library.create(lists)
+        Library.create(lists) //  <<이거 해방
             .clazz(SampleKt::class.java)
-            .type(ExtractType.CSV)
-            .name("test")
-            .default()
+            .type(ExtractType.PLAIN)
+            .name("your mom")
+            .default
             .output(Type.LOCAL)
-            .path("./")
+            .path("/your-mom")
             .build()
+
     }
 }

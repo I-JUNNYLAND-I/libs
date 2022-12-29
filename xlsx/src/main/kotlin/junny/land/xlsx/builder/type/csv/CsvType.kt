@@ -1,29 +1,19 @@
 package junny.land.xlsx.builder.type.csv
 
-import junny.land.xlsx.builder.type.ExtractType
 import junny.land.xlsx.builder.type.UseType
 import junny.land.xlsx.datas.XlsxFields
 import junny.land.xlsx.datas.XlsxHeaders
 import java.nio.file.Files
+import java.nio.file.Files.createTempFile
 import java.nio.file.Path
 import java.util.*
 
-class CsvType : UseType {
-    private val myType = ExtractType.CSV
-    override fun extension(): String {
-        return ".csv"
-    }
-
+class CsvType(
+    val extension:String = ".csv"
+) : UseType {
     override fun convert(headers: XlsxHeaders, datas: List<XlsxFields>): Path {
-        val content = mutableListOf<String>()
-
-        content.add(headers.toCsv())
-        datas.forEach {
-            content.add(it.toCsv())
-        }
-        val file = Files.createTempFile("${UUID.randomUUID()}", ".csv")
-        Files.write(file, content)
-
-        return file
+        val content = listOf(headers.csv) + datas.map(XlsxFields::csv)
+        return createTempFile("${UUID.randomUUID()}", extension)
+            .also { Files.write(it, content) }
     }
 }

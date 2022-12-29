@@ -5,12 +5,8 @@ import junny.land.xlsx.builder.output.OutputSelector
 class TemporarySelector<T>(
     private val root: Library<T>
 ) {
-    fun isTemporary(boolean: Boolean): OutputSelector<T> {
-        root.temporary(boolean)
-        return OutputSelector(root)
-    }
-    fun default(): OutputSelector<T> {
-        root.temporary(true)
-        return OutputSelector(root)
-    }
+    val temporary: OutputSelector<T>
+        get() = OutputSelector(root).also { root.temporary(true) }
+    val default: OutputSelector<T>
+        get() = OutputSelector(root).also { root.temporary(false) }
 }
