@@ -6,4 +6,4 @@ import kotlin.annotation.AnnotationTarget.FIELD
 
 @Target(FIELD)
 @Retention(RUNTIME)
-annotation class Column(val name: String ="")
+annotation class Column(val value: String ="")

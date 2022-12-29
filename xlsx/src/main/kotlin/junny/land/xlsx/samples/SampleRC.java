@@ -3,8 +3,8 @@ package junny.land.xlsx.samples;
 import junny.land.xlsx.annotation.Column;
 
 public record SampleRC(
-    @Column(name = "annoName")
+    @Column(value = "annoName")
     String name,
-    @Column(name = "annoAge") Integer age,
+    @Column(value = "annoAge") Integer age,
     Integer noAnno
 ) {}

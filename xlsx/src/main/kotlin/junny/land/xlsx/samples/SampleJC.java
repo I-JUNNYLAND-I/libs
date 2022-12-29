@@ -3,9 +3,9 @@ package junny.land.xlsx.samples;
 import junny.land.xlsx.annotation.Column;
 
 public class SampleJC {
-    @Column(name = "annoName")
+    @Column("annoName")
     private String name;
-    @Column(name = "annoAge")
+    @Column("annoAge")
     private Integer age;
     private Integer noAnno;
 

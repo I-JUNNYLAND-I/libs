@@ -19,7 +19,7 @@ class LibraryTest {
             .type(ExtractType.PLAIN)
             .name("jay")
             .temporary()
-            .output(Type.REST)
+            .output(Type.PATH)
             .path("/")
             .build()
 

@@ -13,8 +13,7 @@ class Builder<T>(private val root: Library<T>) {
 
     fun build() {
         val tempPath = root.type.convert(group.headers(), group.valueList())
-
-        Files.copy(get("${File(root.path).name}.${tempPath.extension}"), tempPath.outputStream())
+//        Files.copy(get("${File(root.path).name}.${tempPath.extension}"), tempPath.outputStream())
     }
 
     private infix fun String.with(name: String) = "${this}/${name}"

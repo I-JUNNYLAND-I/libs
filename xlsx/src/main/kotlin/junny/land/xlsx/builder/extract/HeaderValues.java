@@ -12,7 +12,7 @@ public record HeaderValues<T>(Class<T> clazz) {
         ArrayList<String> headerList = new ArrayList<>();
         for (Field field : clazz.getDeclaredFields()) {
             String name = ofNullable(field.getAnnotation(Column.class))
-                .map(Column::name)
+                .map(Column::value)
                 .orElseGet(field::getName);
 
             headerList.add(name);
