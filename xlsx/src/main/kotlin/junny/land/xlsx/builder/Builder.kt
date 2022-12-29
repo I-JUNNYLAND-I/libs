@@ -11,7 +11,5 @@ class Builder<T>(private val root: Library<T>) {
     fun build() {
     }
 
-    private infix fun String.with(name:String): String {
-        return this +l+ name
-    }
+    private infix fun String.with(name:String) = "${this}/${name}"
 }
