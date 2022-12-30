@@ -12,11 +12,9 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 allprojects {
     repositories {
+        mavenCentral()
         maven("https://jitpack.io")
     }
-}
-repositories {
-    mavenCentral()
 }
 
 dependencies {
