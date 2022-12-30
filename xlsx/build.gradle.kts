@@ -15,13 +15,9 @@ repositories {
 }
 
 dependencies {
-    // spring
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.apache.poi:poi:5.2.3")
-    implementation("org.apache.poi:poi-ooxml:5.2.3")
-
+    implementation("org.dhatim:fastexcel:0.14.2")
     testImplementation(kotlin("test"))
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.assertj:assertj-core:3.23.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.1")
 }
