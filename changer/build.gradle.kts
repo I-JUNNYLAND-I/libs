@@ -10,6 +10,10 @@ group = "junny.land"
 version = "1.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "17"
+}
+
 allprojects {
     repositories {
         mavenCentral()
@@ -29,6 +33,3 @@ tasks.test {
     useJUnitPlatform()
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17"
-}

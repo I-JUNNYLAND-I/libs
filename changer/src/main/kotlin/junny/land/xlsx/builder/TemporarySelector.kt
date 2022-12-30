@@ -6,5 +6,5 @@ class TemporarySelector<T>(
     private val root: Changer<T>
 ) {
     fun temporary(): OutputSelector<T> = OutputSelector(root).also { root.temporary(true) }
-    fun default(): OutputSelector<T> = OutputSelector(root).also { root.temporary(false) }
+    fun defaultTemporary(): OutputSelector<T> = OutputSelector(root).also { root.temporary(false) }
 }

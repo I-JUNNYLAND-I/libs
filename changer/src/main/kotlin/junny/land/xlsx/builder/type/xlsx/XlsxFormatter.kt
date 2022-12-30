@@ -23,7 +23,7 @@ fun headerGenerator(sheet: Worksheet, header: HeaderDatas) {
     }
 }
 
-fun dataGenerator(sheet: Worksheet, datas: List<FieldDatas>) =
+fun dataGenerator(sheet: Worksheet, datas: Collection<FieldDatas>) =
     datas.forEachIndexed { index: Int, element: FieldDatas ->
         element.data.forEachIndexed { index2: Int, fieldData: String ->
             sheet.value(index + DATA_START, index2, fieldData)

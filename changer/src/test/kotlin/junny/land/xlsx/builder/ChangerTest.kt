@@ -6,7 +6,6 @@ import junny.land.xlsx.samples.SampleKt
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.io.File
-import java.io.OutputStream
 
 @Disabled
 class ChangerTest {
@@ -33,7 +32,7 @@ class ChangerTest {
             .classType(SampleKt::class.java)
             .type(ExtractType.XLSX)
             .name("test")
-            .default()
+            .defaultTemporary()
             .output(Type.FILE)
             .path("./")
             .build<File>();

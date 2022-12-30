@@ -2,6 +2,7 @@ package junny.land.xlsx.builder
 
 import junny.land.xlsx.builder.extract.FieldsGroup
 import junny.land.xlsx.builder.output.Type
+import java.io.File
 import kotlin.io.path.extension
 
 class Builder<T>(val root: Changer<T>) {
@@ -25,5 +26,13 @@ class Builder<T>(val root: Changer<T>) {
         }
         root.temporary(absolutePath)
         return result
+    }
+    fun <R> extract(): R {
+        val tempPath = root.type.convert(group.headers(), group.valueList())
+        val absolutePath = "${root.path}/${root.name}.${tempPath.extension}"
+
+        return root.output.response(tempPath,absolutePath)
+            .also { root.temporary(absolutePath) }
+            .let { it as R }
     }
 }

@@ -7,7 +7,7 @@ import java.nio.file.Path
 import java.util.*
 
 interface UseType {
-    fun convert(headers: HeaderDatas, datas: List<FieldDatas>): Path
+    fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>): Path
 }
 
 

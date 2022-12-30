@@ -11,7 +11,7 @@ import java.util.*
 class CsvType(
     val extension:String = ".csv"
 ) : UseType {
-    override fun convert(headers: HeaderDatas, datas: List<FieldDatas>): Path {
+    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>): Path {
         val content = listOf(headers.csv) + datas.map(FieldDatas::csv)
         return createTempFile("${UUID.randomUUID()}", extension)
             .also { Files.write(it, content) }

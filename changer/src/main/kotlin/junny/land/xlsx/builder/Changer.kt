@@ -8,7 +8,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
-class Changer<T>(val raws: List<T>) {
+class Changer<T>(val raws: Collection<T>) {
     lateinit var clazz: Class<T>
     lateinit var type: UseType
     lateinit var responseType: Type
@@ -20,7 +20,7 @@ class Changer<T>(val raws: List<T>) {
     var temporary: Boolean = false;
 
     companion object {
-        fun <T> create(raws: List<T>): ClassSelector<T> {
+        fun <T> create(raws: Collection<T>): ClassSelector<T> {
             val lib = Changer(raws);
             return ClassSelector(lib)
         }

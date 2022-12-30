@@ -12,7 +12,7 @@ import kotlin.io.path.outputStream
 class XlsxType(
     val extension:String = ".xlsx"
 ) : UseType {
-    override fun convert(headers: HeaderDatas, datas: List<FieldDatas>) : Path {
+    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>) : Path {
         val tempFile = Files.createTempFile(UUID.randomUUID().toString(), extension);
 
         tempFile.outputStream().use {
