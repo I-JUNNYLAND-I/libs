@@ -7,6 +7,7 @@ import junny.land.xlsx.datas.FieldDatas
 import junny.land.xlsx.datas.HeaderDatas
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
+import java.nio.file.Files
 import java.nio.file.Path
 
 class UseTypeTest {
@@ -38,25 +39,23 @@ class UseTypeTest {
     @Test
     fun `CsvConvertTest`() {
         val type: UseType = CsvType()
-
-        println("path = " + type.convert(headers, datas))
-        Assertions.assertThat(type.convert(headers, datas)).isInstanceOf(Path::class.java)
+        val convert = type.convert(headers, datas)
+        Assertions.assertThat(convert).isInstanceOf(Path::class.java)
+        Files.deleteIfExists(convert)
     }
 
     @Test
     fun `XlsxTest`(){
         val type: UseType = XlsxType()
         val convert = type.convert(headers, datas)
-
-        println("path = " + convert)
         Assertions.assertThat(convert).isInstanceOf(Path::class.java)
+        Files.deleteIfExists(convert)
     }
     @Test
     fun `PlainTest`(){
         val type: UseType = PlainType()
         val convert = type.convert(headers, datas)
-
-        println("path = " + convert)
         Assertions.assertThat(convert).isInstanceOf(Path::class.java)
+        Files.deleteIfExists(convert)
     }
 }

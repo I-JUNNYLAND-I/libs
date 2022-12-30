@@ -4,6 +4,6 @@ import junny.land.xlsx.annotation.Column
 
 class SampleKt(
     @Column(value = "annoName") var name: String ="",
-    @Column(value = "annoAge") var age: Int =0,
+    @Column("annoAge") var age: Int =0,
     var noAnno: Int = 0
 )

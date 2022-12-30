@@ -7,6 +7,5 @@ class HeaderDatasTest{
     @Test
     fun plainTest(){
         val value = HeaderDatas(listOf("adafsdfasdf", "b", "ce", "d", "edf", "f123131232"))
-        println(value.plain)
     }
 }
