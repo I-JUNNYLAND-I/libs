@@ -3,9 +3,12 @@ package junny.land.xlsx.builder
 import junny.land.xlsx.builder.output.Type
 import junny.land.xlsx.builder.type.ExtractType
 import junny.land.xlsx.samples.SampleKt
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
+import java.io.File
 import java.io.OutputStream
 
+@Disabled
 class ChangerTest {
     val lists = listOf(
         SampleKt("junny", 25, 1),
@@ -23,21 +26,17 @@ class ChangerTest {
             .output(Type.BYTE)
             .path("./")
             .build<ByteArray>()
-
-        println("build = ${build}")
     }
     @Test
     fun extractTest2() {
         val build= Changer.create(lists)
             .classType(SampleKt::class.java)
             .type(ExtractType.XLSX)
-            .name("jay")
-            .temporary()
+            .name("test")
+            .default()
             .output(Type.FILE)
             .path("./")
-            .build<OutputStream>()
-
-        println("build = ${build}")
+            .build<File>();
     }
 
 }

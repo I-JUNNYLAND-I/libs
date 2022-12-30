@@ -6,6 +6,7 @@ import junny.land.xlsx.builder.type.ExtractType
 import junny.land.xlsx.builder.type.UseType
 import java.nio.file.Files
 import java.nio.file.Path
+import java.nio.file.Paths
 
 class Changer<T>(val raws: List<T>) {
     lateinit var clazz: Class<T>
@@ -70,9 +71,12 @@ class Changer<T>(val raws: List<T>) {
         return this.output
     }
 
-    fun temporary(path: Path) {
+    fun temporary(path: String) {
         if (this.temporary) {
-            Files.deleteIfExists(path)
+            if (this.responseType == Type.FILE) {
+                throw IllegalArgumentException("Temporary file can not be used with File,Path")
+            }
+            Paths.get(path).toFile().deleteOnExit()
         }
     }
 }
