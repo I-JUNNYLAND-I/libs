@@ -1,6 +1,7 @@
 package com.junnyland.stat.api
 
 import com.junnyland.stat.client.ParserInfo
+import com.junnyland.stat.svgFixture.JunnylandSvg
 import com.junnyland.stat.svgFixture.SvgData
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
@@ -30,7 +31,6 @@ class InfoController(
             .map { it.replace("{{my}}", userId) }
             .map { it.replace("{{src}}", call.badge) }
             .map { it.replace("{{page}}", call.myPage) }
-
             .joinToString("\n")
 
         return ResponseEntity.ok()
@@ -40,5 +40,17 @@ class InfoController(
             .header("Expires", "0")
             .header("Access-Control-Allow-Origin", "*")
             .body(readLines);
+    }
+
+    @GetMapping("/junnyland")
+    fun junnyland(): ResponseEntity<String> {
+        SvgData.data()
+        return ResponseEntity.ok()
+            .header("Content-Type", "image/svg+xml")
+            .header("Cache-Control", "no-cache")
+            .header("Pragma", "no-cache")
+            .header("Expires", "0")
+            .header("Access-Control-Allow-Origin", "*")
+            .body(JunnylandSvg.data);
     }
 }
