@@ -10,6 +10,11 @@ group = "junny.land"
 version = "1.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+allprojects {
+    repositories {
+        maven("https://jitpack.io")
+    }
+}
 repositories {
     mavenCentral()
 }

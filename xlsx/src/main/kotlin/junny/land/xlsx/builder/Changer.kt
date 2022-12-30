@@ -26,8 +26,8 @@ class Changer<T>(val raws: List<T>) {
         }
     }
 
-    fun clazz(newClazz: Class<*>) {
-        this.clazz = newClazz as Class<T>
+    fun clazz(newClazz: Class<T>) {
+        this.clazz = newClazz
     }
 
     fun type(newType: UseType) {
