@@ -1,3 +1,7 @@
-jdk: openjdk17
+jdk:
+  - openjdk17
 before_install:
  - cd ./changer
+install:
+   - echo "Running a custom install command"
+   - ./gradlew clean build
