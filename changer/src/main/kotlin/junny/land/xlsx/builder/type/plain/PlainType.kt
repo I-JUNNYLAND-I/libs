@@ -7,12 +7,14 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.util.*
 
+private fun Collection<FieldDatas>.joinToString() = this.joinToString("\n") { it.plain }
+
 class PlainType(
-    val extension:String = ".txt"
+    val extension: String = ".txt"
 ) : UseType {
-    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>) : Path {
-        val datas = headers.plain +"\n"+ datas.map { it.plain }.joinToString("\n")
+    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>): Path {
+        val content = "${headers.plain}\n${datas.joinToString()}"
         return Files.createTempFile("${UUID.randomUUID()}", extension)
-            .also { it.toFile().writeText(datas) }
+            .also { it.toFile().writeText(content) }
     }
 }
