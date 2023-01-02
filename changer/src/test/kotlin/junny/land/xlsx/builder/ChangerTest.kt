@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.io.File
 
-@Disabled
 class ChangerTest {
     val lists = listOf(
         SampleKt("junny", 25, 1),

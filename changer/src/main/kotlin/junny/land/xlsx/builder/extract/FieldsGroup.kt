@@ -10,5 +10,5 @@ class FieldsGroup<T>(
     private val headerValues=  HeaderValues(format)
 
     fun headers(): HeaderDatas = headerValues.extract()
-    fun valueList(): Collection<FieldDatas> = raws.map { FieldValue(it).extract() }
+    fun valueList(): Collection<FieldDatas> = raws.map { FieldValue(it,format).extract() }
 }

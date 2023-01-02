@@ -42,7 +42,7 @@ class FieldsGroupTest {
     @Test
     fun `extractFieldKTTest`() {
         val data = SampleKt("junny", 25, 1)
-        val extract = FieldValue(data).extract()
+        val extract = FieldValue(data,SampleKt::class.java).extract()
 
         Assertions.assertThat(extract.data).containsExactly("junny", "25", "1")
     }
@@ -50,7 +50,7 @@ class FieldsGroupTest {
     @Test
     fun `extractFieldJCTest`() {
         val data = SampleJC("junny", 25, 1)
-        val extract = FieldValue(data).extract()
+        val extract = FieldValue(data,SampleJC::class.java).extract()
 
         Assertions.assertThat(extract.data)
             .containsExactly("junny", "25", "1")
