@@ -3,6 +3,7 @@ package junny.land.xlsx.builder;
 
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import junny.land.xlsx.builder.output.Type;
@@ -14,10 +15,10 @@ import org.junit.jupiter.api.Test;
 @Disabled
 public class ChagerJTest {
 
-    Collection<SampleJC> myCollection = List.of(
-        new SampleJC("name1",1,2),
-        new SampleJC("name2",1,2),
-        new SampleJC("name3",1,2)
+    Collection<SampleJC> myCollection = Arrays.asList(
+        new SampleJC("name1", 1, 2),
+        new SampleJC("name2", 1, 2),
+        new SampleJC("name3", 1, 2)
     );
 
     @Test

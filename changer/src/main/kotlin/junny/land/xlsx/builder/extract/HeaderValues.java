@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import junny.land.xlsx.annotation.Column;
 import junny.land.xlsx.datas.HeaderDatas;
 
-public record HeaderValues<T>(Class<T> clazz) {
+public class HeaderValues<T> {
+
+    private final Class<T> clazz;
+
     public HeaderDatas extract() {
         ArrayList<String> headerList = new ArrayList<>();
         for (Field field : clazz.getDeclaredFields()) {
@@ -20,4 +23,7 @@ public record HeaderValues<T>(Class<T> clazz) {
         return new HeaderDatas(headerList);
     }
 
+    public HeaderValues(Class<T> clazz) {
+        this.clazz = clazz;
+    }
 }
