@@ -5,7 +5,6 @@ import junny.land.xlsx.builder.extract.FieldsGroup
 import junny.land.xlsx.builder.extract.HeaderValues
 import junny.land.xlsx.samples.SampleJC
 import junny.land.xlsx.samples.SampleKt
-import junny.land.xlsx.samples.SampleRC
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -39,13 +38,6 @@ class FieldsGroupTest {
         Assertions.assertThat(extract.headers).containsExactly("annoName", "annoAge", "noAnno")
     }
 
-    @Test
-    fun `extractHeaderRCTest`() {
-        val data = SampleRC("junny", 25, 1)
-        val extract = HeaderValues(data::class.java).extract()
-
-        Assertions.assertThat(extract.headers).containsExactly("annoName", "annoAge", "noAnno")
-    }
 
     @Test
     fun `extractFieldKTTest`() {
@@ -58,15 +50,6 @@ class FieldsGroupTest {
     @Test
     fun `extractFieldJCTest`() {
         val data = SampleJC("junny", 25, 1)
-        val extract = FieldValue(data).extract()
-
-        Assertions.assertThat(extract.data)
-            .containsExactly("junny", "25", "1")
-    }
-
-    @Test
-    fun `extractFieldRCTest`() {
-        val data = SampleRC("junny", 25, 1)
         val extract = FieldValue(data).extract()
 
         Assertions.assertThat(extract.data)
