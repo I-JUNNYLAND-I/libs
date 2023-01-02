@@ -17,9 +17,11 @@ dependencies {
 ```
 ```groovy
 # gradle
-repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 }
 
 dependencies {
