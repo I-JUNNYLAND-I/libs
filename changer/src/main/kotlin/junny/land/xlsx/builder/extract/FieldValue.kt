@@ -9,6 +9,7 @@ class FieldValue<T>(
 ) {
     fun extract(): FieldDatas {
         val datas = clazz.declaredFields
+            .filter { it.name != "this\$0" }
             .map { element: Field -> toString(element) }
             .toList()
         return FieldDatas(datas)

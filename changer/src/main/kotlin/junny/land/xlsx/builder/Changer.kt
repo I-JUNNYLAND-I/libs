@@ -20,10 +20,7 @@ class Changer<T>(val raws: Collection<T>) {
     var temporary: Boolean = false;
 
     companion object {
-        fun <T> create(raws: Collection<T>): ClassSelector<T> {
-            val lib = Changer(raws);
-            return ClassSelector(lib)
-        }
+        fun <T> create(raws: Collection<T>): ClassSelector<T> = ClassSelector(Changer(raws))
     }
 
     fun clazz(newClazz: Class<T>) {

@@ -11,11 +11,8 @@ class HeaderValues<T>(
     fun extract(): HeaderDatas {
         val headerList = ArrayList<String>()
         for (field in clazz.declaredFields) {
-            val name = Optional.ofNullable(
-                field.getAnnotation(
-                    Column::class.java
-                )
-            )
+            if (field.name == "this\$0") continue
+            val name = Optional.ofNullable(field.getAnnotation(Column::class.java))
                 .map(Column::value)
                 .orElseGet { field.name }
             headerList.add(name)
