@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
   implementation("com.github.I-JUNNYLAND-I:libs:main-SNAPSHOT")
+  ...
 }
 ```
 ```groovy
