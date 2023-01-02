@@ -11,19 +11,21 @@ repositories {
 
 
 dependencies {
-  implementation("com.github.I-JUNNYLAND-I:libs:main-SNAPSHOT")
+  implementation("com.github.I-JUNNYLAND-I:libs:{VERSION}")
   ...
 }
 ```
 ```groovy
 # gradle
-repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 }
 
 dependencies {
-    implementation "com.github.I-JUNNYLAND-I:libs:main-SNAPSHOT" 
+    implementation "com.github.I-JUNNYLAND-I:libs:{VERSION}" 
     ...
 }
 ```
