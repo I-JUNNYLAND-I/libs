@@ -2,10 +2,9 @@ package junny.land.xlsx.builder
 
 import junny.land.xlsx.builder.extract.FieldsGroup
 import junny.land.xlsx.builder.output.Type
-import java.io.File
 import kotlin.io.path.extension
 
-class Builder<T>(val root: Changer<T>) {
+class Builder<T>(override val root: Changer<T>): Selector<T> {
 
     val group: FieldsGroup<T> = FieldsGroup(root.raws, root.clazz)
 
