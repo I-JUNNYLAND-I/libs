@@ -11,7 +11,7 @@ repositories {
 
 
 dependencies {
-  implementation("com.github.I-JUNNYLAND-I:libs:main-SNAPSHOT")
+  implementation("com.github.I-JUNNYLAND-I:libs:{VERSION}")
   ...
 }
 ```
