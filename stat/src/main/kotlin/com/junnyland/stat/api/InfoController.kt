@@ -1,6 +1,7 @@
 package com.junnyland.stat.api
 
 import com.junnyland.stat.client.ParserInfo
+import com.junnyland.stat.converter.PngConverter
 import com.junnyland.stat.svgFixture.JunnylandSvg
 import com.junnyland.stat.svgFixture.SvgData
 import org.slf4j.LoggerFactory
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api")
 class InfoController(
-    private val parserInfo: ParserInfo) {
+    private val parserInfo: ParserInfo,
+    private val pngConverter: PngConverter
+    ) {
     val logger = LoggerFactory.getLogger("boj")!!
 
     @GetMapping("/info")
@@ -29,7 +32,7 @@ class InfoController(
             .map { it.replace("{{resolved}}", call.solved) }
             .map { it.replace("{{failed}}", call.fail) }
             .map { it.replace("{{my}}", userId) }
-            .map { it.replace("{{src}}", call.badge) }
+            .map { it.replace("{{src}}", pngConverter.run(call.badge)) }
             .map { it.replace("{{page}}", call.myPage) }
             .joinToString("\n")
 
