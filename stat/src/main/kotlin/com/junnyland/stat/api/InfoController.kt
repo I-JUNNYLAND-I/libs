@@ -21,7 +21,7 @@ class InfoController(
 ) {
     val logger = LoggerFactory.getLogger("boj")!!
 
-    @GetMapping("/info")
+    @GetMapping("/info/boj")
     fun info(@RequestParam userId: String): ResponseEntity<String> {
         logger.info("userId: $userId")
         val call = parserInfo.call(userId)
