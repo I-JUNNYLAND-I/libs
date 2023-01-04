@@ -30,6 +30,7 @@ dependencies {
 
 	implementation("org.apache.xmlgraphics:batik-transcoder:1.14")
 	implementation("org.apache.xmlgraphics:batik-codec:1.14")
+	implementation("org.apache.xmlgraphics:batik-dom:1.14")
 }
 
 tasks.withType<KotlinCompile> {
