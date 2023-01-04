@@ -1,6 +1,6 @@
 package com.junnyland.stat.api
 
-import com.junnyland.stat.client.ParserInfo
+import com.junnyland.stat.service.ParserBoj
 import com.junnyland.stat.config.ApiClient
 import com.junnyland.stat.converter.Converter
 import com.junnyland.stat.svgFixture.JunnylandSvg
@@ -16,15 +16,17 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api")
 class InfoController(
-    private val parserInfo: ParserInfo,
+    private val parserBoj: ParserBoj,
     private val apiClient: ApiClient
 ) {
     val logger = LoggerFactory.getLogger("boj")!!
 
-    @GetMapping("/info")
+    @GetMapping("/info/boj")
     fun info(@RequestParam userId: String): ResponseEntity<String> {
+        if (userId.equals("{{MyId}}")) throw Exception("Please set your id")
+
         logger.info("userId: $userId")
-        val call = parserInfo.call(userId)
+        val call = parserBoj.call(userId)
         val get = apiClient.get(call.badge).orEmpty()
 
         val readLines = SvgData.data().lines()
