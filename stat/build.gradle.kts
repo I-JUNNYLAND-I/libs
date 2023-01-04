@@ -28,8 +28,8 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	implementation("org.jsoup:jsoup:1.15.3")
 
-	implementation("org.apache.xmlgraphics:batik-transcoder:1.14")
-	implementation("org.apache.xmlgraphics:batik-codec:1.14")
+	implementation("org.apache.xmlgraphics:batik-transcoder:1.16")
+	implementation("org.apache.xmlgraphics:batik-codec:1.16")
 	implementation("org.apache.xmlgraphics:batik-dom:1.14")
 }
 
