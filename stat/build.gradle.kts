@@ -27,9 +27,9 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	implementation("org.jsoup:jsoup:1.15.3")
-
 	implementation("org.apache.xmlgraphics:batik-transcoder:1.16")
-	implementation("org.apache.xmlgraphics:batik-codec:1.14")
+	implementation("org.apache.xmlgraphics:batik-codec:1.16")
+
 }
 
 tasks.withType<KotlinCompile> {
