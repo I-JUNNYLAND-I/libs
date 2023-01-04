@@ -24,6 +24,7 @@ class InfoController(
     @GetMapping("/info/boj")
     fun info(@RequestParam userId: String): ResponseEntity<String> {
         if (userId.equals("{{MyId}}")) throw Exception("Please set your id")
+        if (userId.contains("}") || userId.contains("{") ) throw Exception("Please set your id")
 
         logger.info("userId: $userId")
         val call = parserBoj.call(userId)
