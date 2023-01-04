@@ -3,4 +3,4 @@
 ```markdown
 ![baeckjoon](http://sign.junnyland.com:8877/api/info/boj?userId={{MyId}})
 ```
-![baeckjoon](http://sign.junnyland.com:8877/api/info/boj?userId=chbe5082)
+![baeckjoon]([http://sign.junnyland.com:8877/api/info/boj?userId=chbe5082](https://github.com/I-JUNNYLAND-I/libs/edit/main/stat/readme.md))
