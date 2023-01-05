@@ -4,11 +4,10 @@ import com.junnyland.stat.svgFixture.JunnylandSvg
 import org.junit.jupiter.api.Test
 
 class ConverterTest {
-    val converter: Converter = Converter(JunnylandSvg.data)
 
     @Test
     fun `converTest`() {
-        val run = converter.run()
+        val run =Converter.convert(JunnylandSvg.data)
 
         println("run = ${run}")
     }
