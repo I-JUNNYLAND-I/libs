@@ -23,7 +23,7 @@ class ApiConfig {
     private val WRITE_TIMEOUT = 30000
 
     @Bean
-    fun webClient(): WebClient? {
+    fun webClient(): WebClient {
         val strategies = ExchangeStrategies.builder()
             .codecs { it.defaultCodecs().maxInMemorySize(MEMORY_BUFFER) }
             .build()

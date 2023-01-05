@@ -1,15 +1,15 @@
-package com.junnyland.stat.client
+package com.junnyland.stat.service
 
 import org.jsoup.Jsoup
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
-interface ParserInfo {
+interface ParserBoj {
     fun call(userId:String): Baekjoon.Result
 
     @Component
     class Baekjoon(
-        @Value("\${baekjoon.url}") private val url: String) : ParserInfo{
+        @Value("\${baekjoon.url}") private val url: String) : ParserBoj{
         override fun call(userId: String): Result {
             val info = url+userId
 
@@ -18,6 +18,9 @@ interface ParserInfo {
             val myData = get.getElementById("statics")!!.allElements.eachText()[0].split(" ")
             val myBadge = get.getElementsByClass("solvedac-tier").attr("src")
 
+            if (myBadge.isBlank()){
+                throw Exception("NO TIER")
+            }
             return Result(
                 grade = myData[1],
                 submit = myData[11],

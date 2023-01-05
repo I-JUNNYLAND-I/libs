@@ -1,7 +1,2 @@
-
 baekjoon:
   url: https://www.acmicpc.net/user/
-
-spring:
-  thymeleaf:
-    suffix: .svg
