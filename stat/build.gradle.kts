@@ -23,12 +23,12 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	implementation("org.jsoup:jsoup:1.15.3")
 	implementation("org.apache.xmlgraphics:batik-transcoder:1.16")
 	implementation("org.apache.xmlgraphics:batik-codec:1.16")
+	implementation("org.apache.xmlgraphics:batik-dom:1.16")
 
 }
 
