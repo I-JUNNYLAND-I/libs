@@ -18,9 +18,6 @@ interface ParserBoj {
             val myData = get.getElementById("statics")!!.allElements.eachText()[0].split(" ")
             val myBadge = get.getElementsByClass("solvedac-tier").attr("src")
 
-            if (myBadge.isBlank()){
-                throw Exception("NO TIER")
-            }
             return Result(
                 grade = myData[1],
                 submit = myData[11],

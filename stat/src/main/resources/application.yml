@@ -1,2 +1,12 @@
 baekjoon:
   url: https://www.acmicpc.net/user/
+
+
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: 1234
+      database: 0
+
