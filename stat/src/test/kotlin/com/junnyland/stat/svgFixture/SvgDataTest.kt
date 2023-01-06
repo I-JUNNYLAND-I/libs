@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 class SvgDataTest{
     @Test
     fun svg(){
-        val svg = SvgData.data(
+        val svg = bojSvg(
             "test",
             "test",
             "test",
