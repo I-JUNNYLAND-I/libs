@@ -1,10 +1,8 @@
 package com.junnyland.stat.api
 
-import com.junnyland.stat.config.ApiClient
-import com.junnyland.stat.converter.Converter
-import com.junnyland.stat.service.ParserBoj
+import com.junnyland.stat.bojClient.ParserBoj
+import com.junnyland.stat.service.FindUser
 import com.junnyland.stat.svgFixture.JunnylandSvg
-import com.junnyland.stat.svgFixture.SvgData
 import com.junnyland.stat.svgFixture.SvgData.data
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
@@ -19,8 +17,7 @@ interface  InfoController {
     @RestController
     @RequestMapping("/api")
     class InfoWebController(
-        private val parserBoj: ParserBoj,
-        private val apiClient: ApiClient
+        private val findUser: FindUser
     ) :InfoController{
         val logger = LoggerFactory.getLogger("boj")!!
 
@@ -30,7 +27,7 @@ interface  InfoController {
             if (userId.contains("}") || userId.contains("{") ) throw Exception("Please set your id")
 
             logger.info("userId: $userId")
-            val call = parserBoj.call(userId)
+            val call = findUser.findUser(userId)
 
             return ResponseEntity.ok()
                 .header("Content-Type", "image/svg+xml")
@@ -38,7 +35,7 @@ interface  InfoController {
                 .header("Pragma", "no-cache")
                 .header("Expires", "0")
                 .header("Access-Control-Allow-Origin", "*")
-                .body(data(call.submit, call.grade, call.solved, call.fail, userId, Converter.convert(apiClient.get(call.badge).orEmpty())));
+                .body(data(call.submit, call.grade, call.solved, call.fail, userId, call.badge));
         }
 
         @GetMapping("/junnyland")
