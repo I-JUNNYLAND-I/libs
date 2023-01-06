@@ -1,7 +1,7 @@
 package com.junnyland.stat.bojClient
 
 import com.junnyland.stat.config.ApiClient
-import com.junnyland.stat.converter.Converter
+import com.junnyland.stat.converter.convert
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.springframework.beans.factory.annotation.Value
@@ -34,7 +34,7 @@ interface ParserBoj {
 
         private fun findBadge(get: Document) = get.getElementsByClass("solvedac-tier").attr("src")
                 .let { apiClient.get(it).orEmpty() }
-                .let { Converter.convert(it) }
+                .let { convert(it) }
 
     }
 }

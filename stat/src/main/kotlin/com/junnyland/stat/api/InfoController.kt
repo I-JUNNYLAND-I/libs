@@ -2,8 +2,8 @@ package com.junnyland.stat.api
 
 import com.junnyland.stat.bojClient.ParserBoj
 import com.junnyland.stat.service.FindUser
-import com.junnyland.stat.svgFixture.JunnylandSvg
-import com.junnyland.stat.svgFixture.SvgData.data
+import com.junnyland.stat.svgFixture.bojSvg
+import com.junnyland.stat.svgFixture.junnylandSvg
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -34,8 +34,9 @@ interface  InfoController {
                 .header("Cache-Control", "no-cache")
                 .header("Pragma", "no-cache")
                 .header("Expires", "0")
+                .header("max-age", "0")
                 .header("Access-Control-Allow-Origin", "*")
-                .body(data(call.submit, call.grade, call.solved, call.fail, userId, call.badge));
+                .body(bojSvg(call.submit, call.grade, call.solved, call.fail, userId, call.badge));
         }
 
         @GetMapping("/junnyland")
@@ -45,8 +46,9 @@ interface  InfoController {
                 .header("Cache-Control", "no-cache")
                 .header("Pragma", "no-cache")
                 .header("Expires", "0")
+                .header("max-age", "0")
                 .header("Access-Control-Allow-Origin", "*")
-                .body(JunnylandSvg.data);
+                .body(junnylandSvg());
         }
     }
 }

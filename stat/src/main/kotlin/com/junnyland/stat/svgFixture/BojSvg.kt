@@ -1,14 +1,13 @@
 package com.junnyland.stat.svgFixture
 
-object SvgData {
-    fun data(
-        submit: String,
-        grade: String,
-        solved: String,
-        failed: String,
-        userId: String,
-        image: Any?
-    )= """
+fun bojSvg(
+    submit: String,
+    grade: String,
+    solved: String,
+    failed: String,
+    userId: String,
+    image: Any?,
+) = """
         <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
          <title>JunnyLibs</title>
          <defs>
@@ -32,6 +31,4 @@ object SvgData {
           <text fill="#7aa1d2" x="150.96774" y="45.6652" id="svg_18" font-size="15" font-family="'Asap'" text-anchor="start" xml:space="preserve" stroke="#000" transform="matrix(1 0 0 0.744165 -134.839 -20.8974)" font-weight="bold" font-style="normal" stroke-width="0">Baek Joon</text>
          </g>
         </svg>
-
-    """
-}
+    """.trimIndent()

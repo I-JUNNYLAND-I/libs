@@ -1,8 +1,6 @@
 package com.junnyland.stat.svgFixture
 
-object JunnylandSvg {
-    val data: String
-        get() = """
+fun junnylandSvg(): String = """
 <svg width="91" height="20" xmlns="http://www.w3.org/2000/svg">
  <g>
   <title>Layer 1</title>
@@ -26,4 +24,3 @@ object JunnylandSvg {
  </defs>
 </svg>
         """.trimIndent()
-}
