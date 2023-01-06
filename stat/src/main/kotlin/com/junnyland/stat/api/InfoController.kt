@@ -23,8 +23,7 @@ interface  InfoController {
 
         @GetMapping("/info/boj")
         override fun info(@RequestParam userId: String): ResponseEntity<String> {
-            if (userId.equals("{{MyId}}")) throw Exception("Please set your id")
-            if (userId.contains("}") || userId.contains("{") ) throw Exception("Please set your id")
+            if (userId.isBlank() || userId == "{{MyId}}" || userId.contains("}") || userId.contains("{")) return ResponseEntity.badRequest().build()
 
             logger.info("userId: $userId")
             val call = findUser.findUser(userId)
