@@ -8,9 +8,8 @@ fun bojSvg(
     userId: String,
     image: Any?,
 ) = """
-   <svg width="350" height="180" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <svg width="350" height="180" style="background-color: #292a2b; font-family: sans-serif; border-radius: 10px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>JunnyLibs</title>
-
     <g>
      <title>Layer 1</title>
      <!-- Baek Joon -->
