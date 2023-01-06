@@ -8,7 +8,7 @@ fun bojSvg(
     userId: String,
     image: Any?,
 ) = """
-   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect x="0" y="0" width="400" height="200" rx="10" ry="10" style="fill: #292a2b"/>
     <title>JunnyLibs</title>
     <g>
