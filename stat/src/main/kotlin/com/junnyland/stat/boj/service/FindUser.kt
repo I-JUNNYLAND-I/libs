@@ -1,8 +1,8 @@
-package com.junnyland.stat.service
+package com.junnyland.stat.boj.service
 
-import com.junnyland.stat.bojClient.Boj
-import com.junnyland.stat.bojClient.ParserBoj
-import com.junnyland.stat.caching.StatCache
+import com.junnyland.stat.boj.bojClient.Boj
+import com.junnyland.stat.boj.bojClient.ParserBoj
+import com.junnyland.stat.boj.caching.StatCache
 import org.slf4j.LoggerFactory.getLogger
 import org.springframework.stereotype.Service
 

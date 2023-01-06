@@ -1,6 +1,6 @@
 package com.junnyland.stat.converter
 
-import com.junnyland.stat.svgFixture.junnylandSvg
+import com.junnyland.stat.boj.junnylandSvg
 import org.junit.jupiter.api.Test
 
 class ConverterTest {

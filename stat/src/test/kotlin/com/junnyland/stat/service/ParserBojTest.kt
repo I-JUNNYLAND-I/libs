@@ -1,6 +1,6 @@
 package com.junnyland.stat.service
 
-import com.junnyland.stat.bojClient.ParserBoj
+import com.junnyland.stat.boj.bojClient.ParserBoj
 import com.junnyland.stat.config.ApiClient
 import com.junnyland.stat.config.ApiConfig
 import org.junit.jupiter.api.Test

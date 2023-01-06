@@ -1,4 +1,4 @@
-package com.junnyland.stat.svgFixture
+package com.junnyland.stat.boj
 
 fun junnylandSvg(): String = """
 <svg width="91" height="20" xmlns="http://www.w3.org/2000/svg">

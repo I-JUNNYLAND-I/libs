@@ -1,4 +1,4 @@
-package com.junnyland.stat.bojClient
+package com.junnyland.stat.boj.bojClient
 
 import com.junnyland.stat.config.ApiClient
 import com.junnyland.stat.converter.convert

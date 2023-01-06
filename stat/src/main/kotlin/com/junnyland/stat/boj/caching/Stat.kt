@@ -1,6 +1,6 @@
-package com.junnyland.stat.caching
+package com.junnyland.stat.boj.caching
 
-import com.junnyland.stat.bojClient.Boj
+import com.junnyland.stat.boj.bojClient.Boj
 import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
 import org.springframework.data.redis.core.TimeToLive

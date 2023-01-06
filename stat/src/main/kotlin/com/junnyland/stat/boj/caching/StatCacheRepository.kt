@@ -1,4 +1,4 @@
-package com.junnyland.stat.caching
+package com.junnyland.stat.boj.caching
 
 import org.springframework.data.repository.CrudRepository
 

@@ -1,5 +1,7 @@
 package com.junnyland.stat.caching
 
+import com.junnyland.stat.boj.caching.Stat
+import com.junnyland.stat.boj.caching.StatCacheRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest

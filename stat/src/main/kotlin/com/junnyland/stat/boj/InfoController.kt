@@ -1,9 +1,6 @@
-package com.junnyland.stat.api
+package com.junnyland.stat.boj
 
-import com.junnyland.stat.bojClient.ParserBoj
-import com.junnyland.stat.service.FindUser
-import com.junnyland.stat.svgFixture.bojSvg
-import com.junnyland.stat.svgFixture.junnylandSvg
+import com.junnyland.stat.boj.service.FindUser
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -18,7 +15,7 @@ interface  InfoController {
     @RequestMapping("/api")
     class InfoWebController(
         private val findUser: FindUser
-    ) :InfoController{
+    ) : InfoController {
         val logger = LoggerFactory.getLogger("boj")!!
 
         @GetMapping("/info/boj")

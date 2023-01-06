@@ -1,4 +1,4 @@
-package com.junnyland.stat.bojClient
+package com.junnyland.stat.boj.bojClient
 
 data class Boj(
     val grade: String,
