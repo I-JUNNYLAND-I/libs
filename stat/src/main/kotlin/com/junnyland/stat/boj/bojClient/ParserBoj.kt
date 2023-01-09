@@ -18,22 +18,8 @@ interface ParserBoj {
         override fun call(userId: String) = load(url + userId)
             .let { (profile, badge) -> Boj.convert(profile, badge) }
 
-        private fun load(info: String) = Jsoup.connect(info).get().let {
-            val profile = getStaticsElement(it)
-                .run { allElements.eachText()[0] }
-                .split(" ")
-            val badge = loadBadge(parserBadgeUrl(it))
-
-            profile to badge
-        }
-
-        private fun getStaticsElement(get: Document) = (get.getElementById("statics")
-            ?: throw IllegalStateException("NOT FOUND"))
-
-        private fun parserBadgeUrl(document: Document): String? = document.run {
-            getElementsByClass("solvedac-tier")
-            attr("src")
-        }.takeIf(String::isBlank)
+        private fun load(info: String) = Jsoup.connect(info).get()
+            .let { getStaticsElement(it).allElements.eachText()[0].split(" ") to loadBadge(parserBadgeUrl(it)) }
 
         private fun loadBadge(badgeUrl: String?) = badgeUrl
             ?.let { apiClient.get(it).orEmpty() }
