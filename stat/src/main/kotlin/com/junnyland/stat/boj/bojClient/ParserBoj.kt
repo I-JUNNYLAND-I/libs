@@ -15,24 +15,36 @@ interface ParserBoj {
         @Value("\${baekjoon.url}") private val url: String,
         private val apiClient: ApiClient
     ) : ParserBoj {
-        override fun call(userId: String): Boj {
-            val info = url + userId
+        override fun call(userId: String) = load(url + userId).let {
+            val (profile, badge) = it
 
-            val get = Jsoup.connect(info).get()
-
-            val myData = get.getElementById("statics")!!.allElements.eachText()[0].split(" ")
-
-            return Boj(
-                grade = myData[1],
-                submit = myData[11],
-                solved = myData[13],
-                fail = myData[18],
-                badge = findBadge(get),
-            )
+            Boj(grade = profile[1],
+                submit = profile[11],
+                solved = profile[13],
+                fail = profile[18],
+                badge = badge)
         }
 
-        private fun findBadge(get: Document) = get.getElementsByClass("solvedac-tier").attr("src")
-                .let { apiClient.get(it).orEmpty() }
-                .let { convert(it) }
+        private fun load(info: String) = Jsoup.connect(info).get().let {
+            val profile = getStaticsElement(it)
+                .run { allElements.eachText()[0] }
+                .split(" ")
+            val badge = loadBadge(parserBadgeUrl(it))
+
+            profile to badge
+        }
+
+        private fun getStaticsElement(get: Document) = (get.getElementById("statics")
+            ?: throw IllegalStateException("NOT FOUND"))
+
+        private fun parserBadgeUrl(document: Document): String? = document.run {
+            getElementsByClass("solvedac-tier")
+            attr("src")
+        }.takeIf(String::isBlank)
+
+        private fun loadBadge(badgeUrl: String?) = badgeUrl
+            ?.let { apiClient.get(it).orEmpty() }
+            ?.run(::convert)
+            ?: ""
     }
 }

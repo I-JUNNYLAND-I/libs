@@ -6,4 +6,12 @@ data class Boj(
     val solved: String,
     val fail: String,
     val badge: String,
-)
+) {
+    companion object {
+        fun mom(a: List<String>, b: String) = Boj(grade = profile[1],
+            submit = profile[11],
+            solved = profile[13],
+            fail = profile[18],
+            badge = badge)
+    }
+}

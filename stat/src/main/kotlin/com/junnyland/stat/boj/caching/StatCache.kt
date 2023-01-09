@@ -1,9 +1,7 @@
 package com.junnyland.stat.boj.caching
 
 import com.junnyland.stat.boj.bojClient.Boj
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Repository
 
@@ -23,8 +21,8 @@ interface StatCache {
             ?.run(Stat::toDomain)
             ?: throw IllegalArgumentException("Not Found")
 
-        override fun save(boj: Boj, userId: String) {
-            CoroutineScope(Dispatchers.Default).launch {
+        override fun save(boj: Boj, userId: String): Unit = runBlocking {
+            withContext(Dispatchers.IO) {
                 statCacheRepository.save(Stat(boj, userId))
             }
         }

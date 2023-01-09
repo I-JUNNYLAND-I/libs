@@ -11,9 +11,8 @@ import org.springframework.web.reactive.function.client.bodyToMono
 class ApiClient(
     private val webClient: WebClient
 ) {
-    fun get(url: String) =
-        if(url.isBlank()) ""
-        else runBlocking { withContext(Dispatchers.IO) {
+    fun get(url: String) = runBlocking {
+        withContext(Dispatchers.IO) {
             webClient.get()
                 .uri(url)
                 .retrieve()
