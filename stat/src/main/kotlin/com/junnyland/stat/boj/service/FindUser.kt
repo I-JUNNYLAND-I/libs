@@ -14,12 +14,14 @@ interface FindUser {
         private val parserBoj: ParserBoj,
         private val statCache: StatCache
     ): FindUser {
-        val log = getLogger("USER")
         override fun findUser(userId: String): Boj =
             if(statCache.exists(userId)) statCache.find(userId)
                 .also { log.info("Cache Hit {}",userId) }
             else parserBoj.call(userId)
                 .also { log.info("Cache Miss {}",userId) }
                 .also { statCache.save(it,userId) }
+    }
+    companion object {
+        private val log = getLogger("USER")
     }
 }

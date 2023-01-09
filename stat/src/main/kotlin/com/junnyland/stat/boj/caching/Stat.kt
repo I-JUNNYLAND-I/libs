@@ -30,7 +30,7 @@ class Stat(
         myPage = boj.myPage
     )
 
-    fun toDomain(): Boj = Boj(
+    fun toDomain() = Boj(
         grade = grade,
         submit = submit,
         solved = solved,
