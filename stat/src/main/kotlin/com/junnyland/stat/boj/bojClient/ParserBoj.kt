@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
 interface ParserBoj {
-    fun call(userId:String): Boj
+    fun call(userId: String): Boj
 
     @Component
     class Baekjoon(
