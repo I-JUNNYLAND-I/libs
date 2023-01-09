@@ -21,7 +21,7 @@ interface StatCache {
         override fun exists(key: String) = statCacheRepository.existsById(key)
         override fun find(key: String) = statCacheRepository.findByIdOrNull(key)
             ?.run(Stat::toDomain)
-            ?: throw Exception("Not Found")
+            ?: throw IllegalArgumentException("Not Found")
 
         override fun save(boj: Boj, userId: String) {
             CoroutineScope(Dispatchers.Default).launch {
