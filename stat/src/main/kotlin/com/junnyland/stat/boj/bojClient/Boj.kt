@@ -6,5 +6,4 @@ data class Boj(
     val solved: String,
     val fail: String,
     val badge: String,
-    val myPage: String,
 )

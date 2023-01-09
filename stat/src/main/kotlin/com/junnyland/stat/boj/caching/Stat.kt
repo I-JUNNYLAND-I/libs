@@ -16,7 +16,6 @@ class Stat(
     val solved: String,
     val fail: String,
     val badge: String,
-    val myPage: String,
     @TimeToLive var expire: Long = 60 * 60 * 24,
     val createAt: LocalDateTime = LocalDateTime.now(),
 ) {
@@ -27,7 +26,6 @@ class Stat(
         solved = boj.solved,
         fail = boj.fail,
         badge = boj.badge,
-        myPage = boj.myPage
     )
 
     fun toDomain() = Boj(
@@ -36,6 +34,5 @@ class Stat(
         solved = solved,
         fail = fail,
         badge = badge,
-        myPage = myPage,
     )
 }
