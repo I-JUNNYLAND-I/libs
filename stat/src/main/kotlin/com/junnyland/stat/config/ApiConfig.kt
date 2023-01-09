@@ -14,14 +14,12 @@ import reactor.netty.http.client.HttpClient
 import java.time.Duration
 import java.util.concurrent.TimeUnit
 
+fun Builder.initHeaders() = this
+    .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+    .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
+
 @Configuration
 class ApiConfig {
-    private val MEMORY_BUFFER = 100 * 1024 * 1024
-
-    private val CONNECTION_TIMEOUT = 30000
-    private val READ_TIMEOUT = 30000
-    private val WRITE_TIMEOUT = 30000
-
     @Bean
     fun webClient(): WebClient {
         val strategies = ExchangeStrategies.builder()
