@@ -20,8 +20,7 @@ class StatTest {
             submit = "test",
             solved = "test",
             fail = "test",
-            badge = "test",
-            myPage = "test"
+            badge = "test"
         ).let {
             statCacheRepository.save(it)
         }.also {
