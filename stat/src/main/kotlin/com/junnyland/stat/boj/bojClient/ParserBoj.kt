@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
 
-private fun parserBadgeUrl(document: Document): String? = document.run {
-    getElementsByClass("solvedac-tier")
-    attr("src")
-}.takeIf(String::isBlank)
+private fun parserBadgeUrl(document: Document): String? = document
+    .let { it.getElementsByClass("solvedac-tier").attr("src") }
+    .takeUnless(String::isBlank)
 
 private fun getStaticsElement(get: Document) = (get.getElementById("statics")
     ?: throw IllegalStateException("NOT FOUND"))
@@ -28,7 +27,11 @@ interface ParserBoj {
             .let { (profile, badge) -> Boj.convert(profile, badge) }
 
         private fun load(info: String) = Jsoup.connect(info).get()
-            .let { getStaticsElement(it).allElements.eachText()[0].split(" ") to loadBadge(parserBadgeUrl(it)) }
+            .let {
+                val profile = getStaticsElement(it).allElements.eachText()[0].split(" ")
+                val badge = loadBadge(parserBadgeUrl(it))
+               profile to badge
+            }
 
         private fun loadBadge(badgeUrl: String?) = badgeUrl
             ?.let { apiClient.get(it).orEmpty() }
