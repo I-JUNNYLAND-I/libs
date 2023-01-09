@@ -16,7 +16,7 @@ interface ParserBoj {
         private val apiClient: ApiClient
     ) : ParserBoj {
         override fun call(userId: String): Boj {
-            val info = url+userId
+            val info = url + userId
 
             val get = Jsoup.connect(info).get()
 
@@ -28,13 +28,11 @@ interface ParserBoj {
                 solved = myData[13],
                 fail = myData[18],
                 badge = findBadge(get),
-                myPage = info
             )
         }
 
         private fun findBadge(get: Document) = get.getElementsByClass("solvedac-tier").attr("src")
                 .let { apiClient.get(it).orEmpty() }
                 .let { convert(it) }
-
     }
 }
