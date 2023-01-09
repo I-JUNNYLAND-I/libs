@@ -3,9 +3,9 @@ package com.junnyland.stat.converter
 import java.util.Base64.getEncoder
 
 
-fun convert(svg: String): String =
-    if (svg.isBlank()) ""
-    else getEncoder()
+fun convert(svg: String) = getEncoder()
         .encode(svg.toByteArray())
         .toString(Charsets.UTF_8)
-        .let { "data:image/svg+xml;base64,${it}" }
+        .run(::toConvert)
+
+private fun toConvert(it: String) = "data:image/svg+xml;base64,${it}"
