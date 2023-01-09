@@ -15,15 +15,8 @@ interface ParserBoj {
         @Value("\${baekjoon.url}") private val url: String,
         private val apiClient: ApiClient
     ) : ParserBoj {
-        override fun call(userId: String) = load(url + userId).let {
-            val (profile, badge) = it
-
-            Boj(grade = profile[1],
-                submit = profile[11],
-                solved = profile[13],
-                fail = profile[18],
-                badge = badge)
-        }
+        override fun call(userId: String) = load(url + userId)
+            .let { (profile, badge) -> Boj.convert(profile, badge) }
 
         private fun load(info: String) = Jsoup.connect(info).get().let {
             val profile = getStaticsElement(it)
