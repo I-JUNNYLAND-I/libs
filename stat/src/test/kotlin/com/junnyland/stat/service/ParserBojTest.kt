@@ -12,6 +12,6 @@ class ParserBojTest{
         val baekjoon = ParserBoj.Baekjoon("https://www.acmicpc.net/user/", ApiClient(ApiConfig().webClient()))
         val call = baekjoon.call("wjwan0")
 
-        println("call = ${call}")
+        println("call = $call")
     }
 }
