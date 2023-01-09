@@ -7,6 +7,15 @@ import org.jsoup.nodes.Document
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
+
+private fun parserBadgeUrl(document: Document): String? = document.run {
+    getElementsByClass("solvedac-tier")
+    attr("src")
+}.takeIf(String::isBlank)
+
+private fun getStaticsElement(get: Document) = (get.getElementById("statics")
+    ?: throw IllegalStateException("NOT FOUND"))
+
 interface ParserBoj {
     fun call(userId: String): Boj
 
