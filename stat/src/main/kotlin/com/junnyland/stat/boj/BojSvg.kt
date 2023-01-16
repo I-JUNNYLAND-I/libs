@@ -9,7 +9,32 @@ fun bojSvg(
     image: Any?,
 ) = """
    <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <rect x="0" y="0" width="400" height="200" rx="10" ry="10" style="fill: #292a2b"/>
+    <style>
+        .rect {
+            animation: slide 1.1s infinite;
+            z-index: 1;
+        } 
+        @keyframes slide {
+            0% {transform:translateX(-100%)}
+	    100% {transform:translateX(100%)}
+        }
+        .stop1 {
+            stop-color: rgba(41,42,43,0.1);
+        }       
+        .stop2 {
+            stop-color: rgba(255,255,255,0.15);
+        }
+        .stop3 {
+            stop-color: rgba(41,42,43,0.1);
+        }
+    </style>
+    <linearGradient id="gradient">
+        <stop class="stop1" offset="0%" />
+        <stop class="stop2" offset="50%" />        
+        <stop class="stop3" offset="100%" />
+    </linearGradient>
+    <rect x="0" y="0" width="400" height="200" rx="10" ry="10" style="fill: rgb(35,35,35)"/>
+    <rect class="rect" x="0" y="0" width="180" height="200" fill="url(#gradient)"/>
     <title>JunnyLibs</title>
     <g>
      <title>Layer 1</title>
