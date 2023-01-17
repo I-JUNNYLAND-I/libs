@@ -16,7 +16,7 @@ class Stat(
     val solved: String,
     val fail: String,
     val badge: String,
-    @TimeToLive var expire: Long = 60 * 60 * 24,
+    @TimeToLive var expire: Long = 60 * 5,
     val createAt: LocalDateTime = LocalDateTime.now(),
 ) {
     constructor(boj: Boj, userId: String) : this(
