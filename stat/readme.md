@@ -5,8 +5,6 @@
 ```
 ![baeckjoon](http://sign.junnyland.com:8877/api/info/boj?userId=chbe5082)
 ![baeckjoon](http://sign.junnyland.com:8877/api/info/boj?userId=chbe5082)
-![baeckjoon](http://sign.junnyland.com:8877/api/info/boj?userId=silrairon)
-![baeckjoon](http://sign.junnyland.com:8877/api/info/boj?userId=wjwan0)
-![baeckjoon](http://sign.junnyland.com:8877/api/info/boj?userId=jennachoi27)
+
 
 designed by : [wlsdn93](https://github.com/wlsdn93)
