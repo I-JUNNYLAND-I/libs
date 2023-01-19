@@ -1,5 +1,9 @@
 baekjoon:
   url: https://www.acmicpc.net/user/
+instagram:
+  url: https://graph.instagram.com/
+  api: v15.0/
+  token: IGQVJYTVg1WXBVOFJWVlYwRUl4V3JjODctU21nbTRrYW1qdG9jMTlLcW5JTXgtZAHpDaF8tYUxST2JscXRSNUV0SFl2dmxWN3ZAleDQyQnRNRnJWTjZAHS1pPZAUN0QVhlaldDSWJrRUhHdWIycWxpZATk3TgZDZD
 
 
 spring:
