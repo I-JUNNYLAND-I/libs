@@ -16,6 +16,9 @@ interface FindUser {
             val dirver = driver()
                 .also { it.get(URL+userId) }
 
+            // class name "x6umtig x1b1mbwd xaqea5y xav7gou xk390pu x5yr21d xpdipgo xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x11njtxf xh8yej3"
+            val data = dirver.findElements(By.className("x6umtig"))
+            val findElements = dirver.findElements(By.className("x6umtig"))
             val userId= """
                 #mount_0_0_cH > div > div > div > div.x9f619.x1n2onr6.x1ja2u2z > div > div > div > div.x78zum5.xdt5ytf.x10cihs4.x1t2pt76.x1n2onr6.x1ja2u2z > section > main > div > header > section > div.x6s0dn4.x78zum5.x1q0g3np.xs83m0k.xeuugli.x1n2onr6 > h2
             """.trim()
