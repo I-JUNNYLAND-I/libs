@@ -3,7 +3,6 @@ package junny.land.xlsx.builder
 import junny.land.xlsx.builder.output.Type
 import junny.land.xlsx.builder.type.ExtractType
 import junny.land.xlsx.samples.SampleKt
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.io.File
 

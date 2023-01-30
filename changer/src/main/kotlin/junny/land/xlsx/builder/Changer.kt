@@ -4,8 +4,6 @@ import junny.land.xlsx.builder.output.OutPutType
 import junny.land.xlsx.builder.output.Type
 import junny.land.xlsx.builder.type.ExtractType
 import junny.land.xlsx.builder.type.UseType
-import java.nio.file.Files
-import java.nio.file.Path
 import java.nio.file.Paths
 
 class Changer<T>(val raws: Collection<T>) {
@@ -16,7 +14,6 @@ class Changer<T>(val raws: Collection<T>) {
     lateinit var name: String
     lateinit var path: String
     lateinit var extractType: ExtractType
-
     var temporary: Boolean = false;
 
     companion object {

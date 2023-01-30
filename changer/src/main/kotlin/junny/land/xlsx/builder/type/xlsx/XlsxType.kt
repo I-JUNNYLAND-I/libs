@@ -10,19 +10,18 @@ import kotlin.io.path.outputStream
 
 
 class XlsxType(
-    val extension:String = ".xlsx"
+    val extension: String = ".xlsx"
 ) : UseType {
-    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>) : Path {
-        val tempFile = Files.createTempFile(UUID.randomUUID().toString(), extension);
+    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>): Path = Files.createTempFile(UUID.randomUUID().toString(), extension)
+            .also { it.outputStream()
+                .use {
+                    val workBook = xlsxMake(it)
+                    val sheet = workBook.newWorksheet("sheet 1");
 
-        tempFile.outputStream().use {
-            val workBook = xlsxMake(it)
-            val sheet = workBook.newWorksheet("sheet 1");
+                    headerGenerator(sheet, headers)
+                    dataGenerator(sheet, datas)
+                    workBook.finish()
+                }
+            }
 
-            headerGenerator(sheet, headers)
-            dataGenerator(sheet, datas)
-            workBook.finish()
-        }
-        return tempFile
-    }
 }

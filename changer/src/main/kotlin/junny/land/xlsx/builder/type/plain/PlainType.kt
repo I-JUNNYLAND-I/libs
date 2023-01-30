@@ -12,9 +12,6 @@ private fun Collection<FieldDatas>.joinToString() = this.joinToString("\n") { it
 class PlainType(
     val extension: String = ".txt"
 ) : UseType {
-    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>): Path {
-        val content = "${headers.plain}\n${datas.joinToString()}"
-        return Files.createTempFile("${UUID.randomUUID()}", extension)
-            .also { it.toFile().writeText(content) }
-    }
+    override fun convert(headers: HeaderDatas, datas: Collection<FieldDatas>): Path = Files.createTempFile("${UUID.randomUUID()}", extension)
+            .also { it.toFile().writeText("${headers.plain}\n${datas.joinToString()}") }
 }
