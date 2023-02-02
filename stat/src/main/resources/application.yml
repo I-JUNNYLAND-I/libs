@@ -5,7 +5,7 @@ baekjoon:
 spring:
   data:
     redis:
-      host: 10.0.0.215
+      host: db.junnyland.com
       port: 6379
       password: 1234
       database: 0
