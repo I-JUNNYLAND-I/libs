@@ -1,12 +1,11 @@
 package junny.land.xlsx.reader
 
-import junny.land.xlsx.reader.model.DataType
-import java.io.File
-import java.io.OutputStream
-import java.nio.file.Path
+import junny.land.xlsx.reader.parseModel.ParseType
+import java.io.InputStream
 
 class Reader<T>(val response: Class<T>){
-    lateinit var type: DataType
+    lateinit var type: InputStream
+    lateinit var extension: ParseType
     fun create(): DataSelector<T> = DataSelector(Reader(response))
 
     companion object {
@@ -15,15 +14,13 @@ class Reader<T>(val response: Class<T>){
 
     fun response(): Class<T> = response
 
-    fun type(type: File) {
-        this.type = DataType.file(type)
+    fun type(type: InputStream) {
+        this.type = type
     }
-
-    fun type(type: OutputStream) {
-        this.type = DataType.outputStream(type)
+    fun extension(extension: String) {
+        this.extension = ParseType.toType(extension)
     }
-
-    fun type(type: Path) {
-        this.type = DataType.path(type)
+    fun extension(extension: ParseType) {
+        this.extension = extension
     }
 }
