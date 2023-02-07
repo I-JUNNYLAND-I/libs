@@ -1,17 +1,16 @@
 package junny.land.xlsx.reader.parseModel
 
-import org.dhatim.fastexcel.reader.ReadableWorkbook
 import java.io.InputStream
 
 interface Parser {
-    fun toData(type: InputStream)
+    fun toData(type: InputStream, headerRow: Int, dataRow: Int)
 
     companion object {
-        fun toData(type: ParseType, datas: InputStream) {
+        fun toData(type: ParseType, datas: InputStream,headerRow: Int, dataRow: Int) {
             when (type) {
-                ParseType.XLSX -> XlsxParser().toData(datas)
-                ParseType.CSV -> CsvParser().toData(datas)
-                ParseType.JSON -> JsonParser().toData(datas)
+                ParseType.XLSX -> XlsxParser().toData(datas,headerRow,dataRow)
+//                ParseType.CSV -> CsvParser().toData(datas)
+//                ParseType.JSON -> JsonParser().toData(datas)
                 else -> throw Exception("Not support type")
             }
         }
@@ -19,15 +18,14 @@ interface Parser {
 }
 
 
-
-class CsvParser : Parser {
-    override fun toData(type: InputStream) {
-
-    }
-}
-
-class JsonParser : Parser {
-    override fun toData(type: InputStream) {
-
-    }
-}
+//class CsvParser : Parser {
+//    override fun toData(type: InputStream, headerRow: Int, dataRow: Int) {
+//
+//    }
+//}
+//
+//class JsonParser : Parser {
+//    override fun toData(type: InputStream, headerRow: Int, dataRow: Int) {
+//
+//    }
+//}
