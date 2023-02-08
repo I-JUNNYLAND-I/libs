@@ -12,7 +12,7 @@ class DataSelectorTest {
     @Test
     fun fileTest() = Reader(SampleJC::class.java)
         .create()
-        .type(File("test.xlsx"))
+        .data(File("test.xlsx"))
         .root
         .type
         .let { assertEquals("", String(it.readBytes(), Charsets.UTF_8)) }
@@ -20,14 +20,14 @@ class DataSelectorTest {
     @Test
     fun test2() = Reader
         .create(SampleKt::class.java)
-        .type(FileInputStream(File("test.xlsx")))
+        .data(FileInputStream(File("test.xlsx")))
         .root
         .type
         .let { assertEquals("", String(it.readBytes(), Charsets.UTF_8)) }
 
     @Test
     fun test3() = Reader.create(SampleKt::class.java)
-        .type(File("test.xlsx").toPath())
+        .data(File("test.xlsx").toPath())
         .root
         .type
         .let { assertEquals("", String(it.readBytes(), Charsets.UTF_8)) }

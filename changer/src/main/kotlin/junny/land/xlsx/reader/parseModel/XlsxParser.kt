@@ -19,11 +19,5 @@ fun Sheet.extract() = this.read()
 
 class XlsxParser : Parser {
     override fun toData(type: InputStream, headerRow: Int, dataRow: Int) {
-        ReadableWorkbook(type)
-            .let { firstSheet(it) }
-            .extract()
-            }
-
-
-
+        firstSheet(ReadableWorkbook(type)).extract() }
     }

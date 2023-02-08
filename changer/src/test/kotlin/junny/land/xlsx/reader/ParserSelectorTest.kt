@@ -14,7 +14,7 @@ class ParserSelectorTest {
 
     @Test
     fun `auto type`() = Reader.create(SampleJC::class.java)
-        .type(File("test.xlsx"))
+        .data(File("test.xlsx"))
         .auto()
         .root
         .extension
@@ -22,7 +22,7 @@ class ParserSelectorTest {
 
     @Test
     fun `type enum`() = Reader.create(SampleJC::class.java)
-        .type(File("test.xlsx"))
+        .data(File("test.xlsx"))
         .type(ParseType.CSV)
         .root
         .extension
@@ -30,7 +30,7 @@ class ParserSelectorTest {
 
     @Test
     fun `type string`() = Reader.create(SampleJC::class.java)
-        .type(File("test.xlsx"))
+        .data(File("test.xlsx"))
         .type("csv")
         .root
         .extension
@@ -40,7 +40,7 @@ class ParserSelectorTest {
     fun `illegal error`() {
         assertThrows<IllegalArgumentException> {
             Reader.create(SampleJC::class.java)
-                .type(File("test.xlsx"))
+                .data(File("test.xlsx"))
                 .type("csv2")
         }
     }
@@ -48,7 +48,7 @@ class ParserSelectorTest {
     fun `none error`() {
         assertThrows<IllegalArgumentException> {
             Reader.create(String::class.java)
-                .type(File("test"))
+                .data(File("test"))
                 .auto()
         }
     }
