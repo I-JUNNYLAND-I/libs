@@ -6,7 +6,8 @@ import junny.land.xlsx.reader.parseModel.ParseType.NONE
 import java.io.InputStream
 
 class Reader<T>(private val response: Class<T>) {
-    val classInfo: ClassInfo = ClassInfo().also { it.headerList(response) }
+    val classInfo: ClassInfo = ClassInfo().also { it.fieldList(response) }
+
     var extension: ParseType = NONE
 
     lateinit var type: InputStream
