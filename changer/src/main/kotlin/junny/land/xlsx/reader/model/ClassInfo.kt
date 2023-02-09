@@ -19,6 +19,7 @@ data class ClassInfo(
             mappingIndexByFieldList.add(headerList.indexOf(element))
         }
 
+
     fun fieldWithData(index: Int, data: String) =
         mapOf(headerList[mappingIndexByFieldList[index]] to data)
 
