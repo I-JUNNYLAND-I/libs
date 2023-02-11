@@ -8,12 +8,13 @@ class XlsxParserTest {
 
     @Test
     fun toData() {
-        XlsxParser(
+        val toData = XlsxParser(
             File("test.xlsx").inputStream(),
             0,
             1
         ).toData()
 
-
+        assertTrue(toData.datas.isNotEmpty())
+        assertTrue(toData.header.isNotEmpty())
     }
 }
