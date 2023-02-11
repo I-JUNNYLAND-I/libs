@@ -8,6 +8,12 @@ class XlsxParserTest {
 
     @Test
     fun toData() {
-//        XlsxParser().toData(File("test.xlsx").inputStream())
+        XlsxParser(
+            File("test.xlsx").inputStream(),
+            0,
+            1
+        ).toData()
+
+
     }
 }
