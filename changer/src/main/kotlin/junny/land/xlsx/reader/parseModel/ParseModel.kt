@@ -1,14 +1,19 @@
 package junny.land.xlsx.reader.parseModel
 
+import junny.land.xlsx.reader.model.FileDatas
 import java.io.InputStream
 
 interface Parser {
-    fun toData(type: InputStream, headerRow: Int, dataRow: Int)
+    val type: InputStream
+    val headerRow: Int
+    val dataRow: Int
+
+    fun toData(): FileDatas
 
     companion object {
         fun toData(type: ParseType, datas: InputStream,headerRow: Int, dataRow: Int) {
             when (type) {
-                ParseType.XLSX -> XlsxParser().toData(datas,headerRow,dataRow)
+                ParseType.XLSX -> XlsxParser(datas,headerRow,dataRow).toData()
 //                ParseType.CSV -> CsvParser().toData(datas)
 //                ParseType.JSON -> JsonParser().toData(datas)
                 else -> throw Exception("Not support type")
