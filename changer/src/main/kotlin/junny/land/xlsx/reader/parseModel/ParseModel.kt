@@ -14,14 +14,25 @@ interface Parser {
         fun toData(type: ParseType, datas: InputStream,headerRow: Int, dataRow: Int) {
             when (type) {
                 ParseType.XLSX -> XlsxParser(datas,headerRow,dataRow).toData()
-//                ParseType.CSV -> CsvParser().toData(datas)
+                ParseType.CSV -> CsvParser(datas,headerRow,dataRow).toData()
 //                ParseType.JSON -> JsonParser().toData(datas)
                 else -> throw Exception("Not support type")
             }
         }
     }
 }
+enum class ParseType {
+    XLSX, CSV, JSON, NONE;
 
+    companion object{
+        fun toType(type: String): ParseType = when(type){
+            "xlsx","xls" -> XLSX
+            "csv" -> CSV
+            "json" -> JSON
+            else -> NONE
+        }
+    }
+}
 
 //class CsvParser : Parser {
 //    override fun toData(type: InputStream, headerRow: Int, dataRow: Int) {
