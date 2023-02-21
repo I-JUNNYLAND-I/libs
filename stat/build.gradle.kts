@@ -26,7 +26,7 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
-	implementation("org.jsoup:jsoup:1.15.3")
+	implementation("org.jsoup:jsoup:1.15.4")
 	implementation("org.apache.xmlgraphics:batik-transcoder:1.16")
 	implementation("org.apache.xmlgraphics:batik-codec:1.16")
 	implementation("org.apache.xmlgraphics:batik-dom:1.16")
