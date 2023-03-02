@@ -33,15 +33,3 @@ enum class ParseType {
         }
     }
 }
-
-//class CsvParser : Parser {
-//    override fun toData(type: InputStream, headerRow: Int, dataRow: Int) {
-//
-//    }
-//}
-//
-//class JsonParser : Parser {
-//    override fun toData(type: InputStream, headerRow: Int, dataRow: Int) {
-//
-//    }
-//}
