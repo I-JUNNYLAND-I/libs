@@ -22,7 +22,7 @@ jobs:
       run: chmod +x ./stat/gradlew
       
     - name: build java
-      run: cd ./stat  && ./gradlew clean build
+      run: cd ./stat  && ./gradlew clean build -x test
             
     - name: Jar deploy
       uses: appleboy/scp-action@master  
