@@ -5,8 +5,7 @@ baekjoon:
 spring:
   data:
     redis:
-      host: 10.0.0.41
+      host: 129.154.196.125
       port: 6379
-      password: 1234
       database: 0
 
